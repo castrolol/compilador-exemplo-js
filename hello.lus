@@ -1,0 +1,16 @@
+programa "Olá mundo!"
+
+variaveis
+
+	nome literal
+	idade inteiro
+	
+inicio
+
+	nome = "Luan de Castro"
+	idade = 21
+	
+	escrever( "Olá mundo!" )
+	escrever( "Olá " + nome + ", você tem " + idade + " anos? ")
+
+fim

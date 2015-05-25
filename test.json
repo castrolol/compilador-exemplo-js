@@ -1,0 +1,238 @@
+[
+    {
+        "token": "programa",
+        "linha": 1
+    },
+    {
+        "token": {
+            "tipo": "espaco"
+        },
+        "linha": 1
+    },
+    {
+        "token": "\"Olá mundo!\"",
+        "linha": 1
+    },
+    {
+        "token": "variaveis",
+        "linha": 3
+    },
+    {
+        "token": "\tnome",
+        "linha": 5
+    },
+    {
+        "token": {
+            "tipo": "espaco"
+        },
+        "linha": 5
+    },
+    {
+        "token": "literal",
+        "linha": 5
+    },
+    {
+        "token": "\tidade",
+        "linha": 6
+    },
+    {
+        "token": {
+            "tipo": "espaco"
+        },
+        "linha": 6
+    },
+    {
+        "token": "inteiro",
+        "linha": 6
+    },
+    {
+        "token": "\t",
+        "linha": 7
+    },
+    {
+        "token": "inicio",
+        "linha": 8
+    },
+    {
+        "token": "\tnome",
+        "linha": 10
+    },
+    {
+        "token": {
+            "tipo": "espaco"
+        },
+        "linha": 10
+    },
+    {
+        "token": "=",
+        "linha": 10
+    },
+    {
+        "token": {
+            "tipo": "espaco"
+        },
+        "linha": 10
+    },
+    {
+        "token": "\"Luan de Castro\"",
+        "linha": 10
+    },
+    {
+        "token": "\tidade",
+        "linha": 11
+    },
+    {
+        "token": {
+            "tipo": "espaco"
+        },
+        "linha": 11
+    },
+    {
+        "token": "=",
+        "linha": 11
+    },
+    {
+        "token": {
+            "tipo": "espaco"
+        },
+        "linha": 11
+    },
+    {
+        "token": "21",
+        "linha": 11
+    },
+    {
+        "token": "\t",
+        "linha": 12
+    },
+    {
+        "token": "\tescrever",
+        "linha": 13
+    },
+    {
+        "token": "(",
+        "linha": 13
+    },
+    {
+        "token": {
+            "tipo": "espaco"
+        },
+        "linha": 13
+    },
+    {
+        "token": "\"Olá mundo!\"",
+        "linha": 13
+    },
+    {
+        "token": {
+            "tipo": "espaco"
+        },
+        "linha": 13
+    },
+    {
+        "token": ")",
+        "linha": 13
+    },
+    {
+        "token": "\tescrever",
+        "linha": 14
+    },
+    {
+        "token": "(",
+        "linha": 14
+    },
+    {
+        "token": {
+            "tipo": "espaco"
+        },
+        "linha": 14
+    },
+    {
+        "token": "\"Olá \"",
+        "linha": 14
+    },
+    {
+        "token": {
+            "tipo": "espaco"
+        },
+        "linha": 14
+    },
+    {
+        "token": "+",
+        "linha": 14
+    },
+    {
+        "token": {
+            "tipo": "espaco"
+        },
+        "linha": 14
+    },
+    {
+        "token": "nome",
+        "linha": 14
+    },
+    {
+        "token": {
+            "tipo": "espaco"
+        },
+        "linha": 14
+    },
+    {
+        "token": "+",
+        "linha": 14
+    },
+    {
+        "token": {
+            "tipo": "espaco"
+        },
+        "linha": 14
+    },
+    {
+        "token": "\", você tem \"",
+        "linha": 14
+    },
+    {
+        "token": {
+            "tipo": "espaco"
+        },
+        "linha": 14
+    },
+    {
+        "token": "+",
+        "linha": 14
+    },
+    {
+        "token": {
+            "tipo": "espaco"
+        },
+        "linha": 14
+    },
+    {
+        "token": "idade",
+        "linha": 14
+    },
+    {
+        "token": {
+            "tipo": "espaco"
+        },
+        "linha": 14
+    },
+    {
+        "token": "+",
+        "linha": 14
+    },
+    {
+        "token": {
+            "tipo": "espaco"
+        },
+        "linha": 14
+    },
+    {
+        "token": "\" anos? \"",
+        "linha": 14
+    },
+    {
+        "token": ")",
+        "linha": 14
+    }
+]

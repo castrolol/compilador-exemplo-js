@@ -1,0 +1,15 @@
+{
+  "name": "compilador-sample",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index",
+  "repository": "",
+  "author": "Mostafa Eweda <mo.eweda@gmail.com>",
+  "dependencies": {
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-babel": "^5.1.0"
+  }
+}
