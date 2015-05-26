@@ -1,17 +1,35 @@
 var analisadorLexico = require("./analisador-lexico");
 var AnalisadorSemantico = require("./analisador-semantico");
-var estados = require("../recursos/estados");
 
 
 function AnalisadorSintatico(){
 	this.lexer = analisadorLexico;
 	this.semantico = new AnalisadorSemantico();
+	
+	
+	
+	
 }
 
 AnalisadorSintatico.prototype.analisar = function(codigo){
 
 	var tokens = this.lexer.analisar(codigo);
-	
+	var token = null;
+
+	var instrucao = {};
+
+	while((token = tokens.next()) != null){
+		
+		this.semantico.consumir(token);
+		
+		if(this.semantico.temErros){
+			//tratar erros
+		}
+
+		
+
+	}
+
 
 };
 

@@ -1,10 +1,12 @@
 {
-	"vazio": { "id": 1, "estado": "inicial"  },
-	"definicaoPrograma" : { "id": 2, "estado": "definição de programa" },
-	"definicaoNomePrograma" : { "id": 3, "estado": "definição de nome de programa" },
-	"programaDefinido": { "id": 4, "estado": "programa já definido" },
-	"definicaoVariaveis": { "id": 5, "estado": "definição de variaveis" },
-	"definicaoNomeVariavel": { "id": 6, "estado": "definição de nome de variavel" },
-	"definicaoTipoVariavel": { "id": 7, "estado": "definição de tipo de variavel" },
-	"inicioLogicaPrograma": { "id": 9, "estado": "inicio de lógica do programa" } 
+	"vazio":  1,
+	
+	"definicaoPrograma" : 2,
+	"definicaoNomePrograma" : 3,
+	"programaDefinido": 4,
+	
+	"definicaoVariaveis": 5,
+	"definicaoNomeVariavel": 6,
+	"definicaoTipoVariavel": 7,
+	"inicioLogicaPrograma": 9
 }
