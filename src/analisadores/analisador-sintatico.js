@@ -11,8 +11,6 @@ function AnalisadorSintatico(){
 AnalisadorSintatico.prototype.analisar = function(codigo){
 
 	var tokens = this.lexer.analisar(codigo);
-	var instrucoes = tokens.getInstrucoes();	
-
 	
 
 };
