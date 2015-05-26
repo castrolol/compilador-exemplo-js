@@ -1,0 +1,121 @@
+[
+	{
+		"id": "OP_MAT_ADICAO", 
+		"char": "+",
+		"quantidade": 1 
+	},
+	{
+		"id": "OP_MAT_SUBTRACAO", 
+		"char": "-",
+		"quantidade": 1 
+	},
+	{
+		"id": "OP_MAT_MULTIPLICACAO", 
+		"char": "*",
+		"quantidade": 1 
+	},
+	{
+		"id": "OP_MAT_DIVISAO", 
+		"char": "/",
+		"quantidade": 1 
+	},
+	{
+		"id": "OP_MAT_RESTO", 
+		"char": ">=",
+		"quantidade": 2 
+	},
+	{
+		"id": "OP_MAT_POTENCIA", 
+		"char": "^",
+		"quantidade": 1 
+	},
+	
+	
+	
+	{
+		"id": "OP_COMP_MAIOR", 
+		"char": ">",
+		"quantidade": 1 
+	},
+	{
+		"id": "OP_COMP_MENOR", 
+		"char": "<",
+		"quantidade": 2 
+	},
+	{
+		"id": "OP_COMP_IGUAL", 
+		"char": "==",
+		"quantidade": 2 
+	},
+	{
+		"id": "OP_COMP_MAIOR_IGUAL", 
+		"char": ">=",
+		"quantidade": 2 
+	},
+	{
+		"id": "OP_COMP_MENOR_IGUAL", 
+		"char": "<=",
+		"quantidade": 2 
+	},
+	{
+		"id": "OP_COMP_DIFERENTE", 
+		"char": "!=",
+		"quantidade": 2 
+	},
+	
+	
+	
+	{
+		"id": "OP_LOG_E", 
+		"char": "&&",
+		"quantidade": 2 
+	},
+	{
+		"id": "OP_LOG_OU", 
+		"char": "||",
+		"quantidade": 2 
+	},
+	{
+		"id": "OP_LOG_NAO", 
+		"char": "!",
+		"quantidade": 1
+	},
+	
+	{
+		"id": "OP_ATRIBUICAO",
+		"char": "=",
+		"quantidade": 1
+	},
+	{
+		"id": "OP_INV_ABERTURA",
+		"char": "(",
+		"quantidade": 1
+	},
+	{
+		"id": "OP_INV_FECHAMENTO",
+		"char": ")",
+		"quantidade": 1
+	},
+	{
+		"id": "OP_INV_SEPARACAO",
+		"char": ",",
+		"quantidade": 1
+	},
+	{
+		"id": "OP_IND_ABERTURA",
+		"char": "[",
+		"quantidade": 1
+	},
+	{
+		"id": "OP_IND_FECHAMENTO",
+		"char": "]",
+		"quantidade": 1
+	},
+	
+	{
+		"id": "FIM_INSTRUCAO",
+		"char": "\n",
+		"quantidade": 1
+	}
+	
+]

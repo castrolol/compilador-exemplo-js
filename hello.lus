@@ -3,14 +3,14 @@ programa "Olá mundo!"
 variaveis
 
 	nome literal
-	idade inteiro
+	idade real
 	
 inicio
 
 	nome = "Luan de Castro"
-	idade = 21
+	idade = 21.6
 	
-	escrever( "Olá mundo!" )
+	escrever("Olá mundo!")
 	escrever( "Olá " + nome + ", você tem " + idade + " anos? ")
 
 fim
