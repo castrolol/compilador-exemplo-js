@@ -1,14 +1,10 @@
-var analisadorLexico = require("./analisador-lexico");
+var AnalisadorLexico = require("./analisador-lexico");
 var AnalisadorSemantico = require("./analisador-semantico");
 
 
 function AnalisadorSintatico(){
-	this.lexer = analisadorLexico;
+	this.lexer = new AnalisadorLexico();
 	this.semantico = new AnalisadorSemantico();
-	
-	
-	
-	
 }
 
 AnalisadorSintatico.prototype.analisar = function(codigo){
@@ -19,18 +15,17 @@ AnalisadorSintatico.prototype.analisar = function(codigo){
 	var instrucao = {};
 
 	while((token = tokens.next()) != null){
-		debugger;
+
 		this.semantico.consumir(token);
 		
 		if(this.semantico.temErros){
 			//tratar erros
 		}
 
-		
-
 	}
 
+	return this.semantico.obterArvoreExpressoes();
 
 };
 
-module.exports = new AnalisadorSintatico;
+module.exports = AnalisadorSintatico;

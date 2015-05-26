@@ -10,6 +10,7 @@ var TokenBuilder = require("../modulos/token-builder");
 var tiposToken = require("../modulos/tipo-token");
 
 var regexNumeral = /[0-9.]/gi;
+var regexInteiro = /[0-9]/gi;
 var regexLiteral = /^"(.*?)"$/i;
 var regexLogico = /^(verdadeiro|falso)$/;
 var regexIndicador = /^[a-z_][0-9a-z_]*$/i;
@@ -157,7 +158,12 @@ AnalisadorLexico.prototype.reconhecerTokens = function(tokens) {
 		}
 		
 		if(regexNumeral.test(value)){
-			word.type = tiposToken.numeral;
+			
+			if(regexInteiro.test(value)){
+				word.type = tiposToken.inteiro;
+			}else{
+				word.type = tiposToken.real;
+			}
 			continue;
 		}
 
@@ -178,4 +184,4 @@ AnalisadorLexico.prototype.reconhecerTokens = function(tokens) {
 
 }
 
-module.exports = new AnalisadorLexico;
+module.exports = AnalisadorLexico;

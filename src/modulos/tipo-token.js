@@ -19,9 +19,10 @@ var tipos = {
 	word: "WORD",
 	palavraChave: "PALAVRA_CHAVE",
 	literal: "LITERAL",
-	numeral: "NUMERAL",
+	inteiro: "NUMERAL",
+	real: "REAL",
 	logico: "LOGICO",
-	identificador: "INDENTIFICADOR"
+	identificador: "INDENTIFICADOR" 
 };
 
 var grupos = {

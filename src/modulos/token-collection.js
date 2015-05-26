@@ -4,7 +4,6 @@ function Token(value, line){
 	this.value = value || "";
 	this.line = line || -1;
 	this.type = tiposToken.word;
-	this.children = [];
 }
 
 Token.prototype.asLiteral = function(){

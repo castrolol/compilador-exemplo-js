@@ -1,5 +1,7 @@
 var tiposToken = require("../../modulos/tipo-token");
-var Token = require("../../modules/token-collection").Token;
+var Token = require("../../modulos/token-collection").Token;
+var Expressao = require("../expressao");
+var tipos = ["literal", "inteiro", "real", "logico"];
 
 function MaquinaVariaveis(escopo){
 
@@ -29,11 +31,18 @@ MaquinaVariaveis.prototype.consumir = function(token){
 			return;
 		}
 		
-		new Token()
-	}
-	
-	if(acao){
-		this[acao](token);
+		this.ultimoToken = token;
+		
+	}else if(token.type == tiposToken.palavraChave && token.valueIn(tipos)){
+		
+		var declaracao = new Expressao(token);
+		var identificador = new Expressao(this.ultimoToken);
+		declaracao.children.push(identificador);
+		this.escopo.raiz.children.push(declaracao);
+		this.ultimoToken = null;
+	}else if(token.type == tiposToken.palavraChave && token.value == "inicio"){
+		this.escopo.limpar();
+		this.escopo.submaquina.consumir(token);
 	}
 	
 }

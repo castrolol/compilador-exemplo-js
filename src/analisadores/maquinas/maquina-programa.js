@@ -8,7 +8,7 @@ function MaquinaPrograma(escopo){
 	this.escopo = escopo;
 	Object.defineProperty(this, "context", {
 		get: function(){
-			return escopo.obterAtual();
+			return escopo.context
 		}	
 	});
 	
@@ -26,13 +26,16 @@ MaquinaPrograma.prototype.consumir = function(token){
 			acao = nomearPrograma;
 			break;
 		case estados.definicaoNomePrograma:
-			acao = iniciarVariaveis;
+			acao = encerrarNomeacaoPrograma
 			break;
+		case estados.programaDefinido:
+			acao = iniciarVariaveis;
+		break;
 		
 	}
 	
 	if(acao){
-		this[acao](token);
+		acao.call(this, token);
 	}
 	
 }
@@ -52,11 +55,12 @@ function definirPrograma(token){
 	
 	this.context.mudarEstado(estados.definicaoPrograma);
 	this.raiz = new Expressao(token);
-	this.context.raiz.children.push(this.raiz);
+	this.escopo.raiz.children.push(this.raiz);
 	
 };
 
 function nomearPrograma(token) {
+	
 	if(token.type != tiposToken.literal){
 		this.context.registrarErro("Era esperado um literal para nomear o 'programa'", token.line);
 	}
@@ -66,8 +70,17 @@ function nomearPrograma(token) {
 	this.raiz.children.push(new Expressao(token));
 };
 
+function encerrarNomeacaoPrograma(token){
+	if(token.type != tiposToken.fimInstrucao){
+		this.context.registrarErro("Era esperado uma quebra de linha, encontrado  " + token.value, token.line);
+		return;
+	}
+	
+	this.context.mudarEstado(estados.programaDefinido);
+}
+
 function iniciarVariaveis(token) {
-	if(token.type != tiposToken.identificador){
+	if(token.type != tiposToken.palavraChave){
 		this.context.registrarErro("Era esperado uma palavra chave", token.line);
 		return;
 	}
@@ -84,8 +97,9 @@ function iniciarVariaveis(token) {
 	}
 	
 	this.raizVariaveis = new Expressao(token);
-	this.context.raiz.children.push(this.raizVariaveis);
+	this.escopo.raiz.children.push(this.raizVariaveis);
 	this.escopo.criar("variaveis");
+	this.escopo.raiz = this.raizVariaveis;
 }
 
 function iniciarInstrucoes(token){
@@ -106,7 +120,7 @@ function iniciarInstrucoes(token){
 	}
 	
 	this.raizInstrucoes = new Expressao(token); 
-	this.context.raiz.children.push(this.raizInstrucoes);
+	this.escopo.raiz.children.push(this.raizInstrucoes);
 	this.escopo.criar("instrucoes");
 };
 

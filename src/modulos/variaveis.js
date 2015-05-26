@@ -1,5 +1,6 @@
 function Variaveis(){
-	
+	this.valores = {};
+	this.definicoes = {};
 }
 
 
@@ -15,8 +16,11 @@ Variaveis.prototype.obter = function(indicador){
 Variaveis.prototype.criar = function (indicador, tipo) {
 	
 	if( indicador in this.valores ){
+		console.log(indicador + " já foi definida.");
 		return indicador + " já foi definida.";
 	}
+	
+	console.log("criado " + indicador + " (" + tipo + ")");
 	
 	this.definicoes[indicador] = {
 		indicador: indicador,

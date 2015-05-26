@@ -1,6 +1,12 @@
-var analisador = require("./src/analisadores/analisador-sintatico");
+var Analisador = require("./src/analisadores/analisador-sintatico");
+var Executor = require("./src/execucao/executor");
 
-var string = require("fs").readFileSync("./hello.lus", "utf8");
-debugger;
-var resultado = analisador.analisar(string);
-require("fs").writeFileSync("./test.json", JSON.stringify(resultado, null, 4), "utf8")
+var analisador = new Analisador();
+
+var string = require("fs").readFileSync("./simple.lus", "utf8");
+
+//var resultado = analisador.analisar(string);
+var resultado = new Executor(string).executar();
+require("fs").writeFileSync("./test.js",resultado, "utf8")
+
+

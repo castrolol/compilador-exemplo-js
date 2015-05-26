@@ -6,6 +6,7 @@
   "repository": "",
   "author": "Mostafa Eweda <mo.eweda@gmail.com>",
   "dependencies": {
+    "readline-sync": "^1.2.16",
     "underscore": "^1.8.3"
   },
   "devDependencies": {

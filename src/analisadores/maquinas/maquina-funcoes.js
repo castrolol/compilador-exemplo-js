@@ -3,7 +3,7 @@ var Token = require("../../modulos/token-collection").Token;
 var Expressao = require("../expressao");
 var tipos = ["literal", "inteiro", "real", "logico"];
 
-function MaquinaInstrucoes(escopo){
+function MaquinaFuncoes(escopo){
  
 	this.escopo = escopo;
 	this.instrucao = null;
@@ -16,7 +16,7 @@ function MaquinaInstrucoes(escopo){
 	
 }
 
-MaquinaInstrucoes.prototype.consumir = function(token){
+MaquinaFuncoes.prototype.consumir = function(token){
 	
 	if(token.type == tiposToken.palavraChave ){
 		
@@ -31,15 +31,14 @@ MaquinaInstrucoes.prototype.consumir = function(token){
 	}
 	
 }
+
 function tratarFuncaoEscrever(token){
 
 	this.escopo.criar("funcoes");
 	this.escopo.raiz = new Expressao(token);
 	this.escopo.submaquina.consumir(token);
-
+	
 }
 
 
-
-
-module.exports = MaquinaInstrucoes;
+module.exports = MaquinaFuncoes;
