@@ -19,7 +19,7 @@ AnalisadorSintatico.prototype.analisar = function(codigo){
 	var instrucao = {};
 
 	while((token = tokens.next()) != null){
-		
+		debugger;
 		this.semantico.consumir(token);
 		
 		if(this.semantico.temErros){

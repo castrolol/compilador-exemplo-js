@@ -7,6 +7,20 @@ function Token(value, line){
 	this.children = [];
 }
 
+Token.prototype.asLiteral = function(){
+	if(this.type == tiposToken.literal){
+		return this.value.slice(1, -1);
+	}
+	return this.value;
+};
+
+Token.prototype.valueIn = function (valores) {
+	if(valores instanceof Array == false){
+		valores = [].slice.call(arguments);
+	}
+	return ~valores.indexOf(this.value);
+};
+
 function TokenCollection(){
 
 	this.tokens = [];
@@ -66,3 +80,4 @@ TokenCollection.prototype.getInstrucoes = function () {
 }
 
 module.exports = TokenCollection;
+module.exports.Token = Token;

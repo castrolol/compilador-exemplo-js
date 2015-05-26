@@ -6,7 +6,9 @@
 	"programaDefinido": 4,
 	
 	"definicaoVariaveis": 5,
-	"definicaoNomeVariavel": 6,
+	"inicioInstrucao": 6,
+	
+	
 	"definicaoTipoVariavel": 7,
 	"inicioLogicaPrograma": 9
 }
