@@ -11,7 +11,9 @@ AgentePrograma.prototype.processar = function(no){
 		nome = nomeNo.token.value
 	}
 
-	return "var programa = new Programa(" + nome + "); ";
+	return {
+		codigo: "var programa = new Programa(" + nome + "); "
+	};
 
 }
 

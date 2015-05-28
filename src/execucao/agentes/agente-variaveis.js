@@ -1,8 +1,7 @@
 var tiposToken = require("../../modulos/tipo-token");
 
 
-function AgentePrograma(){
-	this.ignoreChildren = true;
+function AgentePrograma(){ 
 }
 
 AgentePrograma.prototype.processar = function(no){
@@ -18,7 +17,10 @@ AgentePrograma.prototype.processar = function(no){
 
 
 
-	return codigo;
+	return {
+		codigo: codigo,
+		ignorarFilhos: true
+	};
 
 }
 

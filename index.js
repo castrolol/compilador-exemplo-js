@@ -5,8 +5,9 @@ var analisador = new Analisador();
 
 var string = require("fs").readFileSync("./simple.lus", "utf8");
 
-//var resultado = analisador.analisar(string);
+var resultado2 = analisador.analisar(string);
 var resultado = new Executor(string).executar();
 require("fs").writeFileSync("./test.js",resultado, "utf8")
+console.log(resultado2);
 
 

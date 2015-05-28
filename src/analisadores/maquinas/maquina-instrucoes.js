@@ -32,11 +32,10 @@ MaquinaInstrucoes.prototype.consumir = function(token){
 	
 }
 function tratarFuncaoEscrever(token){
-
+	var raiz = this.escopo.raiz;
 	this.escopo.criar("funcoes");
-	this.escopo.raiz = new Expressao(token);
+	this.escopo.raiz = raiz;
 	this.escopo.submaquina.consumir(token);
-
 }
 
 

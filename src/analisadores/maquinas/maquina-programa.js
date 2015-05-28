@@ -31,7 +31,9 @@ MaquinaPrograma.prototype.consumir = function(token){
 		case estados.programaDefinido:
 			acao = iniciarVariaveis;
 		break;
-		
+		case estados.definicaoVariaveis:
+			acao = iniciarInstrucoes;
+			break;
 	}
 	
 	if(acao){
@@ -55,7 +57,7 @@ function definirPrograma(token){
 	
 	this.context.mudarEstado(estados.definicaoPrograma);
 	this.raiz = new Expressao(token);
-	this.escopo.raiz.children.push(this.raiz);
+	this.escopo.raiz.addChild(this.raiz);
 	
 };
 
@@ -67,7 +69,7 @@ function nomearPrograma(token) {
 	
 	
 	this.context.mudarEstado(estados.definicaoNomePrograma);
-	this.raiz.children.push(new Expressao(token));
+	this.raiz.addChild(new Expressao(token));
 };
 
 function encerrarNomeacaoPrograma(token){
@@ -93,17 +95,17 @@ function iniciarVariaveis(token) {
 	this.context.mudarEstado(estados.definicaoVariaveis);
 	
 	if(token.value == "inicio"){
-		return this.acaoPosDefinicaoVariaveis(token);
+		return this.iniciarInstrucoes(token);
 	}
 	
 	this.raizVariaveis = new Expressao(token);
-	this.escopo.raiz.children.push(this.raizVariaveis);
+	this.escopo.raiz.addChild(this.raizVariaveis);
 	this.escopo.criar("variaveis");
 	this.escopo.raiz = this.raizVariaveis;
 }
 
 function iniciarInstrucoes(token){
-	if(token.type != tiposToken.identificador){
+	if(token.type != tiposToken.palavraChave){
 		this.context.registrarErro("Era esperado uma palavra chave", token.line);
 		return;
 	}
@@ -115,13 +117,12 @@ function iniciarInstrucoes(token){
 	
 	this.context.mudarEstado(estados.inicioInstrucao);
 	
-	if(token.value == "inicio"){
-		return this.acaoPosDefinicaoVariaveis(token);
-	}
+
 	
 	this.raizInstrucoes = new Expressao(token); 
-	this.escopo.raiz.children.push(this.raizInstrucoes);
+	this.escopo.raiz.addChild(this.raizInstrucoes);
 	this.escopo.criar("instrucoes");
+	this.escopo.raiz = this.raizInstrucoes;
 };
 
 module.exports = MaquinaPrograma;

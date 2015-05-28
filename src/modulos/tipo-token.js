@@ -1,16 +1,17 @@
 var stringHelper = require("../helpers/string-helper");
 var especiais = require("../recursos/caracteres-especiais.json");
 
-function adicionar(nome, tipos){
+function adicionar(originalNome, tipos, nome){
+	nome = nome || originalNome;
 	
 	var possivelGrupo = nome.split("_")[0];
 	if(grupos[possivelGrupo]){
 		if(grupos[possivelGrupo] in tipos == false){
 			tipos[grupos[possivelGrupo]] = {};	
 		}
-		adicionar(nome.split("_").slice(1).join("_"), tipos[grupos[possivelGrupo]]);
+		adicionar(originalNome, tipos[grupos[possivelGrupo]], nome.split("_").slice(1).join("_"));
 	}else{
-		tipos[stringHelper.toCamelCase(nome)] = nome;	
+		tipos[stringHelper.toCamelCase(nome)] = originalNome;	
 	}
 }
 
@@ -22,7 +23,8 @@ var tipos = {
 	inteiro: "NUMERAL",
 	real: "REAL",
 	logico: "LOGICO",
-	identificador: "INDENTIFICADOR" 
+	identificador: "INDENTIFICADOR" ,
+	funcao: "FUNCAO"
 };
 
 var grupos = {

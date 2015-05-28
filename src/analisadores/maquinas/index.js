@@ -8,7 +8,8 @@ var submaquinas = {
 	variaveis: require("./maquina-variaveis"),
 	instrucoes: require("./maquina-instrucoes"),
 	
-	funcoes: require("./maquina-funcoes")
+	funcoes: require("./maquina-funcoes"),
+	expressao: require("./maquina-expressoes")
 };
 
 

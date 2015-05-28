@@ -13,12 +13,20 @@ Token.prototype.asLiteral = function(){
 	return this.value;
 };
 
-Token.prototype.valueIn = function (valores) {
-	if(valores instanceof Array == false){
-		valores = [].slice.call(arguments);
+Token.prototype.valueIn = function (values) {
+	if(values instanceof Array == false){
+		values = [].slice.call(arguments);
 	}
-	return ~valores.indexOf(this.value);
+	return ~values.indexOf(this.value);
 };
+
+Token.prototype.typeIn = function (types) {
+	if(types instanceof Array == false){
+		types = [].slice.call(arguments);
+	}
+	return ~types.indexOf(this.type);
+};
+
 
 function TokenCollection(){
 

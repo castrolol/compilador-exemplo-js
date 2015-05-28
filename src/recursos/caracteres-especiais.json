@@ -21,7 +21,7 @@
 	},
 	{
 		"id": "OP_MAT_RESTO", 
-		"char": ">=",
+		"char": "%",
 		"quantidade": 2 
 	},
 	{

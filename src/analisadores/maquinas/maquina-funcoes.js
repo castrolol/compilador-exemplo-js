@@ -1,7 +1,7 @@
 var tiposToken = require("../../modulos/tipo-token");
+var estados = require("../../recursos/estados.json");
 var Token = require("../../modulos/token-collection").Token;
-var Expressao = require("../expressao");
-var tipos = ["literal", "inteiro", "real", "logico"];
+var Expressao = require("../expressao");  
 
 function MaquinaFuncoes(escopo){
  
@@ -18,27 +18,40 @@ function MaquinaFuncoes(escopo){
 
 MaquinaFuncoes.prototype.consumir = function(token){
 	
-	if(token.type == tiposToken.palavraChave ){
-		
-		switch (token.value) {
-			case 'fim':
-				return this.escopo.limpar();
-			case 'escrever': 
-				return tratarFuncaoEscrever.call(this, token);
-			default:
-				
-		}
+	switch(this.context.obterEstado()){
+		case estados.iniciadoFuncao: 
+			tratarParenteses.call(this, token);
+			break;
+		case estados.iniciadaInvocacao:
+			break;
+		case estados.finalizadaInvocacao:
+			break;
+		default:
+			if(token.type == tiposToken.palavraChave ){
+				tratarFuncoes.call(this, token);
+			}else{
+				this.context.registrarErro("Não era esperado o " + token.type + ": " + token.value, token.line);
+			}
 	}
 	
-}
-
-function tratarFuncaoEscrever(token){
-
-	this.escopo.criar("funcoes");
-	this.escopo.raiz = new Expressao(token);
-	this.escopo.submaquina.consumir(token);
 	
 }
 
+
+
+function tratarFuncoes(token){
+	this.context.mudarEstado(estados.iniciadaInvocacao);
+	var fToken = new Token(token.value, token.line);
+	fToken.type = tiposToken.funcao;
+	this.context.funcao = new Expressao(fToken);
+	this.escopo.raiz.addChild(	this.context.funcao);
+}
+
+function tratarParenteses(){
+	var raiz = this.context.funcao;
+	this.context.mudarEstado(estados.finalizadaInvocacao);
+	this.escopo.criar("expressao");
+	this.escopo.raiz = raiz;
+}
 
 module.exports = MaquinaFuncoes;

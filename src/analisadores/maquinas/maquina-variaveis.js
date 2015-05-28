@@ -37,8 +37,8 @@ MaquinaVariaveis.prototype.consumir = function(token){
 		
 		var declaracao = new Expressao(token);
 		var identificador = new Expressao(this.ultimoToken);
-		declaracao.children.push(identificador);
-		this.escopo.raiz.children.push(declaracao);
+		declaracao.addChild(identificador);
+		this.escopo.raiz.addChild(declaracao);
 		this.ultimoToken = null;
 	}else if(token.type == tiposToken.palavraChave && token.value == "inicio"){
 		this.escopo.limpar();

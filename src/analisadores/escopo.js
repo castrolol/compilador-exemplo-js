@@ -61,7 +61,7 @@
 
 
  Escopo.prototype.limpar = function() {
- 	if(this.stack.length < 1) return;
+ 	if (this.stack.length < 1) return;
  	delete this.context;
  	this.submaquina = null;
  	var restored = this.stack.pop();
@@ -73,4 +73,3 @@
  };
 
  module.exports = Escopo;
- 
