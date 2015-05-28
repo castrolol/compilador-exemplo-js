@@ -7,6 +7,6 @@ variaveis
 	
 inicio
 
-	escrever(5 + 2 * 3
+	escrever(5 + 2 * 3 + 8 - 3)
 
 fim

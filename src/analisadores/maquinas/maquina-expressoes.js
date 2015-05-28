@@ -163,7 +163,7 @@ MaquinaExpressoes.prototype.consumir = function(token){
 			var ordemRaiz = ordens[raiz.token.type];
 			var ordemAtual = ordens[token.type];
 			
-			if(folha.children.length == 2 && ordemRaiz > ordemAtual){
+			if(folha.children.length == 2 && ordemRaiz < ordemAtual){
 				
 				var segundoTermo = folha.children[1];
 				folha.children = [folha.children[0]];

@@ -9,11 +9,20 @@ programa.vars.criar('idade', 'real');
 
 
 programa.executar('escrever',
-	programa.matematica.multiplicacao(
+	programa.matematica.subtracao(
 		programa.matematica.adicao(
-			programa.matematica.int(5),
+			programa.matematica.adicao(
+				programa.matematica.real(5),
 
-			programa.matematica.real(2)
+				programa.matematica.multiplicacao(
+					programa.matematica.real(2),
+
+					programa.matematica.int(3)
+
+				)
+			),
+
+			programa.matematica.real(8)
 
 		),
 
