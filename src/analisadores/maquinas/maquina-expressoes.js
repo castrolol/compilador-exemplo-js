@@ -207,7 +207,7 @@ MaquinaExpressoes.prototype.consumir = function(token){
 			var expressao = new Expressao(token);
 			var dumpToken = new Token("0", token.line);
 			dumpToken.type = tiposToken.inteiro;
-			expressao.addChild(dumpToken);
+			expressao.addChild(new Expressao(dumpToken));
 			this.context.arvore = expressao;
 			expressao.parent = this.escopo.raiz;
 			return;
@@ -217,9 +217,27 @@ MaquinaExpressoes.prototype.consumir = function(token){
 		}
 	}
 	
-	var expressao = new Expressao(token)
-	this.context.arvore = expressao;
-	expressao.parent = this.escopo.raiz;
+
+	if( token.type == tiposToken.operador.invocacao.abertura){
+		
+		token = new Token("resolve", token.line);
+		token.type = tiposToken.funcao;
+		
+		var expressao = new Expressao(token)
+		this.context.arvore = expressao;
+		expressao.parent = this.escopo.raiz;
+		
+		this.escopo.criar("expressao");
+		this.escopo.raiz = expressao;
+		
+
+	}else{
+		var expressao = new Expressao(token)
+		this.context.arvore = expressao;
+		expressao.parent = this.escopo.raiz;
+	}
+
+
 	
 }
 

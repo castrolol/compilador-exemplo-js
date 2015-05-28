@@ -27,12 +27,9 @@
 
  	this.copiar = function() {
  		var novo = new ContextoMaquina(maquina);
- 		for (var prop in this) {
- 			novo[prop] = this[prop]
- 			if (novo[prop] instanceof Array) {
- 				novo[prop] = novo[prop].slice();
- 			};
- 		}
+ 		novo.estado = this.estado;
+ 		novo.erros = this.erros.slice();
+ 		novo.raiz = this.raiz;
  		return novo;
  	};
  }

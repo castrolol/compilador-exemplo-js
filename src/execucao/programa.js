@@ -28,6 +28,10 @@ Programa.prototype.executar = function(funcao, parametros){
 	throw "Função " + funcao + " inexistente";
 };
 
+Programa.prototype.resolve = function(expressao){
+	return expressao;
+}
+
 
 
 module.exports = Programa;

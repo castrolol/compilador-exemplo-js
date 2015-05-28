@@ -75,6 +75,8 @@ AnalisadorLexico.prototype.extrairTokens = function(codigo) {
 	var token = new TokenBuilder(tokens);
  	var especial = null;
  	var linhaString = 1;
+ 	var emComentario = false;
+ 
  
 	var spaceChars = [" ", "\t", "\0", "\n"];
 
@@ -89,13 +91,21 @@ AnalisadorLexico.prototype.extrairTokens = function(codigo) {
 			continue;
 		}
 
+		
+
 		if (!caracterEhValido(caracterAtual)) {
 			this.registrarErro("Caracter invalido", token.line );
 		}
 
 		if (caracterAtual == '\n') {
 			token.line += 1;
+			if(emComentario == 1) emComentario = 0;
 		}
+		
+		if(caracterAtual == "/" && caracterSucedente == "/"){
+			emComentario = true;
+		}
+		if(emComentario) continue;
 		
 		especial = ehCaractereEspecial(caracterAtual, caracterSucedente);
 		if(especial != null){
@@ -115,6 +125,8 @@ AnalisadorLexico.prototype.extrairTokens = function(codigo) {
 
 
 		token.addChar(caracterAtual);
+
+		
 
 		if (caracterAtual == '"') {
 			if (emString) {
@@ -145,7 +157,7 @@ AnalisadorLexico.prototype.reconhecerTokens = function(tokens) {
 	for(var i = 0; i < words.length; i++){
 		
 		var word = words[i];
-		var value = word.value;
+		var value = word.value.toString();
 		
 		if(~palavrasChave.indexOf(value.toLowerCase())){
 			word.type = tiposToken.palavraChave;
