@@ -18,6 +18,10 @@ function MaquinaAtribuicao(escopo){
 
 MaquinaAtribuicao.prototype.consumir = function(token){
 	
+	if(token.type == tiposToken.fimInstrucao || token.type == tiposToken.operador.invocacao.fechamento){
+		return this.escopo.limpar();
+	}
+	
 	switch(this.context.obterEstado()){
 		case estados.aguardandoAtribuicao:
 			tratarAtribuicao.call(this, token);

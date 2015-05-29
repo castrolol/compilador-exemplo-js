@@ -9,6 +9,7 @@ var agentes = [
 	"instrucoes",
 	"condicional",
 	"funcao",
+	"literal",
 	"atribuicao",
 	"indicador",
 	"matematica",

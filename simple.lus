@@ -8,14 +8,20 @@ variaveis
 
 inicio
 
-
-	se ( 5 > 2 ) entao 
+	escrever("Informe sua idade")
+	idade = ler()
+	tt = 2
+	se ( idade < 18 ) entao 
 	
-		escrever(5)
+		se (idade < 5 ) entao 
+			escrever("Você save ler ?")
+		senao
+			escrever("Você não é maior de idade")
+		fim
 	
 	senao
 	
-		escrever(2)
+		escrever("beleza... pode passar!")
 	
 	fim
 

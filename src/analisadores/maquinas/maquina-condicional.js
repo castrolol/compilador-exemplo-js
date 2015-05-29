@@ -39,7 +39,7 @@ MaquinaCondicional.prototype.consumir = function(token){
 
 function tratarAguardandoCondicao(token){
 	if(token.type != tiposToken.operador.invocacao.abertura){
-		this.registrarErro("Era esperado abertura de condicional, encontrado " + token.type, token.line);
+		this.context.registrarErro("Era esperado abertura de condicional, encontrado " + token.type, token.line);
 		return;
 	}
 	
@@ -53,12 +53,12 @@ function tratarAguardandoCondicao(token){
 function tratarInicioCondicao(token){
 
 	if(token.type != tiposToken.palavraChave){
-		this.registrarErro("Era esperado uma palavra chave, encontrado " + token.type, token.line);
+		this.context.registrarErro("Era esperado uma palavra chave, encontrado " + token.type, token.line);
 		return;
 	}
 	
 	if(token.value != "entao"){
-		this.registrarErro("Era esperado uma palavra chave 'entao', encontrado " + token.value, token.line);
+		this.context.registrarErro("Era esperado uma palavra chave 'entao', encontrado " + token.value, token.line);
 		return;
 	}
 	

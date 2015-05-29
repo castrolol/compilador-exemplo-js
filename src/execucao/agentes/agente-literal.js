@@ -9,21 +9,21 @@ function extrairTipos(obj) {
 }
 var tipos = extrairTipos(tiposToken.operador.matematico).concat(tiposToken.inteiro, tiposToken.real);
 
-function AgenteMatematica() {
+function AgenteLiteral() {
 	this.ignoreChildren = true;
 }
 
-AgenteMatematica.prototype.processar = function(no) {
+AgenteLiteral.prototype.processar = function(no) {
 
 	var resposta = {
-		codigo: no.value
+		codigo: no.token.value
 	};
 
 	return resposta;
 
 }
 
-AgenteMatematica.prototype.podeProcessar = function(no) {
+AgenteLiteral.prototype.podeProcessar = function(no) {
 	if (no.token == null) return false;
 
 	if (no.token.type == tiposToken.literal){
@@ -33,4 +33,4 @@ AgenteMatematica.prototype.podeProcessar = function(no) {
 	return false;
 }
 
-module.exports = AgenteMatematica;
+module.exports = AgenteLiteral;

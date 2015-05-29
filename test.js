@@ -1,46 +1,90 @@
-var programa = new Programa("Olá mundo!");
 
+ 
+ var programa = new Programa("Olá mundo!"); 
+ 
 
-programa.vars.criar('nome', 'literal');
-programa.vars.criar('idade', 'inteiro');
-programa.vars.criar('media', 'real');
+ programa.vars.criar('nome', 'literal'); 
+ programa.vars.criar('idade', 'inteiro'); 
+ programa.vars.criar('media', 'real');
+ 
 
+ programa.iniciar();
 
-programa.iniciar();
+(function(vars, condicao, logica, matematica, executar){
+ executar('escrever',
+ "Informe sua idade"
+ 
+ )
 
-(function(vars, condicao, logica, matematica, executar) {
-	condicao.se(
-		logica.maior(
-			matematica.int(5),
+ vars.atribuir('idade', 
+ executar('ler'
+ )
+ )
 
-			matematica.real(2)
+ vars.atribuir('tt', 
+ matematica.int(2)
+ 
+ )
 
-		),
+ condicao.se(
+ logica.menor( 
+ vars.obter('idade')
+ ,
 
-		//entao
-		function() {
+ matematica.int(18)
+ 
+ ),
 
-			executar('escrever',
-				matematica.int(5)
+ //entao
+function(){
 
-			)
+ condicao.se(
+ logica.menor( 
+ vars.obter('idade')
+ ,
 
-		},
+ matematica.real(5)
+ 
+ ),
 
-		//senao
-		function() {
+ //entao
+function(){
 
-			executar('escrever',
-				matematica.real(2)
+ executar('escrever',
+ "Você save ler ?"
+ 
+ )
+ 
+},
 
-			)
+ //senao
+function(){
 
-		}
-	);
-}(
-	programa.vars,
-	programa.condicao,
-	programa.logica,
-	programa.matematica,
-	programa.executar.bind(programa)
+ executar('escrever',
+ "Você não é maior de idade"
+ 
+ )
+ 
+}
+ );
+ 
+},
+
+ //senao
+function(){
+
+ executar('escrever',
+ "beleza... pode passar!"
+ 
+ )
+ 
+}
+ );
+ }(
+programa.vars,
+programa.condicao,
+programa.logica,
+programa.matematica,
+programa.executar.bind(programa)
 ));
+ 
