@@ -1,8 +1,8 @@
 var tiposToken = require("../../modulos/tipo-token");
-function AgentePrograma(){ 
+function AgenteInstrucoes(){ 
 }
 
-AgentePrograma.prototype.processar = function(no){
+AgenteInstrucoes.prototype.processar = function(no){
 
 	var nomeNo = no.children[0];
 	var nome = "";
@@ -10,9 +10,22 @@ AgentePrograma.prototype.processar = function(no){
 		nome = nomeNo.token.value
 	}
 
-	var codigo = "(function(vars, logica, matematica, executar){";
+	var codigo = "programa.iniciar();\n\n";
+	codigo += "(function(vars, condicao, logica, matematica, executar){";
+	
+	var params = [
+		"vars",
+		"condicao",
+		"logica",
+		"matematica",
+		"executar.bind(programa)"
+	];
 
-	var fimCodigo = "}(programa.vars, programa.logica, programa.matematica, programa.logica));";
+
+
+	var fimCodigo = "}(\n" + params.map(function(item){
+		return "programa." + item;
+	}).join(",\n") + "\n));";
 
 	return {
 		
@@ -22,10 +35,10 @@ AgentePrograma.prototype.processar = function(no){
 
 }
 
-AgentePrograma.prototype.podeProcessar = function(no){
+AgenteInstrucoes.prototype.podeProcessar = function(no){
 	if(no.token == null) return false;
 	if(no.token.type != tiposToken.palavraChave) return false;
 	return no.token.value == "inicio";
 }
 
-module.exports = AgentePrograma;
+module.exports = AgenteInstrucoes;

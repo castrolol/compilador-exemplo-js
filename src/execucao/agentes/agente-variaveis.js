@@ -1,10 +1,10 @@
 var tiposToken = require("../../modulos/tipo-token");
 
 
-function AgentePrograma(){ 
+function AgenteVariaveis(){ 
 }
 
-AgentePrograma.prototype.processar = function(no){
+AgenteVariaveis.prototype.processar = function(no){
 	
 	
 	var codigo = no.children.map(function(child){
@@ -23,10 +23,13 @@ AgentePrograma.prototype.processar = function(no){
 
 }
 
-AgentePrograma.prototype.podeProcessar = function(no){
+AgenteVariaveis.prototype.podeProcessar = function(no){
 	if(no.token == null) return false;
 	if(no.token.type != tiposToken.palavraChave) return false;
 	return no.token.value == "variaveis";
 }
 
-module.exports = AgentePrograma;
+
+
+
+module.exports = AgenteVariaveis;

@@ -11,7 +11,17 @@ function Programa(nome){
 
 	this.matematica = require("./matematica");
 	this.logica = require("./logica");
+	this.iniciado = false;
+	this.condicao = require("./condicao");
 	
+}
+
+Programa.prototype.iniciar = function(){
+	this.vars.seal();
+	this.iniciado = true;
+	
+	console.log("\n");
+	console.log("inicio...\n");
 }
 
 Programa.prototype.escrever = function(texto){

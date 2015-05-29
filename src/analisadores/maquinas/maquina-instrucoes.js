@@ -28,14 +28,37 @@ MaquinaInstrucoes.prototype.consumir = function(token){
 				return tratarFuncaoEscrever.call(this, token);
 			case 'escrever': 
 				return tratarFuncaoEscrever.call(this, token);
+			case 'se':
+				return tratarCondicao.call(this, token);
+			case 'senao':
+				if(this.context.emSe){
+					this.escopo.limpar();
+					this.escopo.submaquina.consumir(token);
+					return;
+				}
+
 			default:
-				
+				var erro = "Palavra chave " + token.value + " não esperada.";
+				this.context.registrarErro(erro, token.line);
+				return 
 		}
 	}else if(token.type == tiposToken.identificador){
 		tratarAtribuicao.call(this, token);
 	}
 	
 }
+
+function tratarCondicao(token){
+	
+	var raiz = this.escopo.raiz;
+	var se = new Expressao(token);
+	raiz.addChild(se);
+	this.escopo.criar("condicional");
+	this.escopo.raiz = se;
+	this.context.mudarEstado(estados.aguardandoCondicao);
+
+}
+
 
 function tratarFuncaoEscrever(token){
 	var raiz = this.escopo.raiz;

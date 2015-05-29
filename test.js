@@ -1,64 +1,46 @@
+var programa = new Programa("Olá mundo!");
 
- 
- var programa = new Programa("Olá mundo!"); 
- 
 
- programa.vars.criar('nome', 'literal'); 
- programa.vars.criar('idade', 'inteiro'); 
- programa.vars.criar('media', 'real');
- 
+programa.vars.criar('nome', 'literal');
+programa.vars.criar('idade', 'inteiro');
+programa.vars.criar('media', 'real');
 
- 
- programa.executar('escrever',
- programa.logica.nao( 
- 
- programa.logica.diferente( 
- programa.executar('resolve',
- programa.matematica.adicao( 
- programa.matematica.int(3)
- ,
 
- programa.matematica.real(3)
- 
- )
- ),
+programa.iniciar();
 
- 
- programa.matematica.multiplicacao( 
- programa.matematica.int(2)
- ,
+(function(vars, condicao, logica, matematica, executar) {
+	condicao.se(
+		logica.maior(
+			matematica.int(5),
 
- programa.matematica.real(3)
- 
- )
- 
- )
- 
- )
- )
+			matematica.real(2)
 
- programa.executar('escrever',
- programa.logica.igual( 
- programa.executar('resolve',
- programa.matematica.adicao( 
- programa.matematica.int(3)
- ,
+		),
 
- programa.matematica.real(3)
- 
- )
- ),
+		//entao
+		function() {
 
- 
- programa.matematica.multiplicacao( 
- programa.matematica.int(2)
- ,
+			executar('escrever',
+				matematica.int(5)
 
- programa.matematica.real(3)
- 
- )
- 
- )
- )
- 
- 
+			)
+
+		},
+
+		//senao
+		function() {
+
+			executar('escrever',
+				matematica.real(2)
+
+			)
+
+		}
+	);
+}(
+	programa.vars,
+	programa.condicao,
+	programa.logica,
+	programa.matematica,
+	programa.executar.bind(programa)
+));

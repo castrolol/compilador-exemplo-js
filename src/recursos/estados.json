@@ -17,6 +17,10 @@
 	
 	"aguardandoAtribuicao": 13,
 	"iniciadaAtribuicao": 14,
-	"finalizadaAtribuicao": 15
+	"finalizadaAtribuicao": 15,
+	
+	"aguardandoCondicao": 16,
+	"finalizadaCondicao": 17,
+	"emCondicao": 18
 	
 }

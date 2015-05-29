@@ -7,7 +7,7 @@ function AgenteIndicador() {
 AgenteIndicador.prototype.processar = function(no) {
 
 	return {
-		codigo: "programa.vars.obter('" + no.token.value + "')"
+		codigo: "vars.obter('" + no.token.value + "')"
 	};
 
 }

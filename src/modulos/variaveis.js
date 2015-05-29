@@ -1,6 +1,7 @@
 function Variaveis(){
 	this.valores = null;
 	this.definicoes = {};
+	this.sealed = false;
 }
 
 function defaultFor(type){
@@ -34,8 +35,15 @@ Variaveis.prototype.atribuir = function (indicador, valor) {
 	throw "Variavel não definida";
 }
 
+
+Variaveis.prototype.seal = function(){
+	this.sealed = true;
+}
+
 Variaveis.prototype.criar = function (indicador, tipo) {
-	
+	if(this.sealed){
+		throw "As variaveis devem ser criadas na sessão de declaração !"
+	}
 	if(!this.valores){
 		console.log("Valores:");
 		this.valores = {};

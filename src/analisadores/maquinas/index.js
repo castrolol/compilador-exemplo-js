@@ -10,6 +10,7 @@ var submaquinas = {
 	
 	funcoes: require("./maquina-funcoes"),
 	expressao: require("./maquina-expressoes"),
+	condicional: require("./maquina-condicional"),
 	atribuicao: require("./maquina-atribuicao")
 };
 

@@ -12,7 +12,7 @@ AgenteAtribuica.prototype.processar = function(no) {
 		sufixo: ")"
 	};
 
-	resposta.codigo = "programa.vars.atribuir('" + no.token.value + "', ";
+	resposta.codigo = "vars.atribuir('" + no.token.value + "', ";
 	
 	return resposta;
 

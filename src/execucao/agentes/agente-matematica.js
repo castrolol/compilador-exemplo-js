@@ -33,20 +33,20 @@ AgenteMatematica.prototype.processar = function(no) {
 
 	if(metodo){
 		
-		resposta.codigo = "programa.matematica." + metodo + "( " ;
+		resposta.codigo = "matematica." + metodo + "( " ;
 		return resposta;
 		
 	}
 
 	if(no.token.type == tiposToken.inteiro){
 		return {
-			codigo: "programa.matematica.int(" + no.token.value + ")"
+			codigo: "matematica.int(" + no.token.value + ")"
 		};
 	}
 	
 	if(no.token.type == tiposToken.real){
 		return {
-			codigo: "programa.matematica.real(" + no.token.value + ")"
+			codigo: "matematica.real(" + no.token.value + ")"
 		};
 	}
 	

@@ -6,6 +6,8 @@ var AnalisadorSintatico = require("../analisadores/analisador-sintatico");
 var agentes = [
 	"programa",
 	"variaveis",
+	"instrucoes",
+	"condicional",
 	"funcao",
 	"atribuicao",
 	"indicador",

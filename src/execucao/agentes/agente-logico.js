@@ -49,7 +49,7 @@ AgenteMatematica.prototype.processar = function(no) {
 
 		
 
-		resposta.codigo = "programa.logica." + metodo + "( ";
+		resposta.codigo = "logica." + metodo + "( ";
 		
 		
 		if(metodo == "nao"){

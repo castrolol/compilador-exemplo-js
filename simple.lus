@@ -9,7 +9,15 @@ variaveis
 inicio
 
 
-	escrever( !((3 + 3) != (2 * 3)) )
- 	escrever( (3 + 3) == (2 * 3) )
+	se ( 5 > 2 ) entao 
+	
+		escrever(5)
+	
+	senao
+	
+		escrever(2)
+	
+	fim
+
 fim
 
