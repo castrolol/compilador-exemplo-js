@@ -3,10 +3,17 @@ programa "Olá mundo!"
 variaveis
 
 	nome literal
-	idade real
-	
+	idade inteiro
+	media real
+
 inicio
 
-	escrever(  - 3 + 5 )
+	
+	nome = ler()
+	
+	idade = 30
+	
+	escrever( 2015 - idade )
+	
 
 fim

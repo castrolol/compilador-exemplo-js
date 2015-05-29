@@ -15,7 +15,7 @@
  	};
 
  	this.registrarErro = function(erro, linha) {
- 		this.erros.push({
+ 		maquina.erros.push({
  			erro: erro,
  			linha: linha
  		});

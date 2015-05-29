@@ -13,7 +13,10 @@
 	"inicioLogicaPrograma": 9,
 	
 	"inciadaInvocacao": 11,
-	"finalizadaInvocacao": 12
+	"finalizadaInvocacao": 12,
 	
+	"aguardandoAtribuicao": 13,
+	"iniciadaAtribuicao": 14,
+	"finalizadaAtribuicao": 15
 	
 }

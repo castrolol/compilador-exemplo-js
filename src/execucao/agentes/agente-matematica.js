@@ -7,7 +7,7 @@ function extrairTipos(obj) {
 			return obj[key];
 		});
 }
-var tipos = extrairTipos(tiposToken.operador.matematico).concat(tiposToken.inteiro, tiposToken.real, tiposToken.identificador);
+var tipos = extrairTipos(tiposToken.operador.matematico).concat(tiposToken.inteiro, tiposToken.real);
 
 function AgenteMatematica() {
 	this.ignoreChildren = true;
@@ -44,7 +44,7 @@ AgenteMatematica.prototype.processar = function(no) {
 		};
 	}
 	
-	if(no.token.type == tiposToken.real || no.token.type == tiposToken.identificador){
+	if(no.token.type == tiposToken.real){
 		return {
 			codigo: "programa.matematica.real(" + no.token.value + ")"
 		};

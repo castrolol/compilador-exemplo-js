@@ -9,11 +9,6 @@ var TokenCollection = require("../modulos/token-collection");
 var TokenBuilder = require("../modulos/token-builder");
 var tiposToken = require("../modulos/tipo-token");
 
-var regexNumeral = /[0-9.]/gi;
-var regexInteiro = /[0-9]/gi;
-var regexLiteral = /^"(.*?)"$/i;
-var regexLogico = /^(verdadeiro|falso)$/;
-var regexIndicador = /^[a-z_][0-9a-z_]*$/i;
 
 
 function caracterEhValido(caracter) {
@@ -150,28 +145,38 @@ AnalisadorLexico.prototype.extrairTokens = function(codigo) {
 
 AnalisadorLexico.prototype.reconhecerTokens = function(tokens) {
 
+		 
+	var regexInteiro = /[0-9]/gi;
+	var regexLiteral = /^"(.*?)"$/i;
+	var regexLogico = /^(verdadeiro|falso)$/;
+	var regexIndicador = /^[a-z_][0-9a-z_]*$/i;
+	
 	var words = tokens.toArray().filter(function(token){
 		return token.type == tiposToken.word;
 	});
 	
+	var val = null;
+	var word = null;
+	
 	for(var i = 0; i < words.length; i++){
 		
-		var word = words[i];
-		var value = word.value.toString();
+		word = words[i];
+		val = word.value.slice();
 		
-		if(~palavrasChave.indexOf(value.toLowerCase())){
+		if(~palavrasChave.indexOf(val.toLowerCase())){
 			word.type = tiposToken.palavraChave;
 			continue;
 		}
 		
-		if(regexLiteral.test(value)){
+		if(regexLiteral.test(val)){
 			word.type = tiposToken.literal;
 			continue;
 		}
 		
-		if(regexNumeral.test(value)){
+		
+		if(/[0-9.]/gi.test(+val)){ 
 			
-			if(regexInteiro.test(value)){
+			if(regexInteiro.test(+val)){
 				word.type = tiposToken.inteiro;
 			}else{
 				word.type = tiposToken.real;
@@ -179,13 +184,13 @@ AnalisadorLexico.prototype.reconhecerTokens = function(tokens) {
 			continue;
 		}
 
-		if(regexLogico.test(value)){
+		if(regexLogico.test(val)){
 			word.type = tiposToken.logico;
 			continue;
 		}
 
-		if(!regexIndicador.test(value)){
-			this.registrarErro("'" + value + "' não é um indicador valido!", word.line);
+		if(!regexIndicador.test(val)){
+			this.registrarErro("'" + val + "' não é um indicador valido!", word.line);
 		}
 
 		word.type = tiposToken.identificador;

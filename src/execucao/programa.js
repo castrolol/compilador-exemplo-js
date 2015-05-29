@@ -6,7 +6,7 @@ var Variaveis = require("../modulos/variaveis");
 
 function Programa(nome){
 
-	console.log("Criado programa " + nome);
+	console.log("Programa: " + nome);
 	this.vars = new Variaveis();
 
 	this.matematica = require("./matematica");

@@ -16,7 +16,6 @@ AgentePrograma.prototype.processar = function(no){
 	}).join(" \n ");
 
 
-
 	return {
 		codigo: codigo,
 		ignorarFilhos: true

@@ -13,5 +13,15 @@ AnalisadorSemantico.prototype.obterArvoreExpressoes = function () {
     return this.maquina.arvoreExpressoes;
 };
 
+AnalisadorSemantico.prototype.obterErros = function(){
+    
+    if(this.maquina.erros.length){
+        return this.maquina.erros;
+    }
+    
+    return null;
+    
+}
+
 
 module.exports = AnalisadorSemantico;

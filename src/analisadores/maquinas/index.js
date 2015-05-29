@@ -9,7 +9,8 @@ var submaquinas = {
 	instrucoes: require("./maquina-instrucoes"),
 	
 	funcoes: require("./maquina-funcoes"),
-	expressao: require("./maquina-expressoes")
+	expressao: require("./maquina-expressoes"),
+	atribuicao: require("./maquina-atribuicao")
 };
 
 
@@ -23,7 +24,7 @@ function MaquinaEstados() {
 	for (var submaquina in submaquinas) {
 		this.submaquinas[submaquina] = new submaquinas[submaquina](this.escopo);
 	}
-
+	this.erros = [];
 	this.escopo.submaquina = this.submaquinas.principal;
 
 

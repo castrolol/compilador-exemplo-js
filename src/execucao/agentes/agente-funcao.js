@@ -7,8 +7,8 @@ function AgenteFuncao() {
 AgenteFuncao.prototype.processar = function(no) {
 
 	return {
-		codigo: "programa.executar('" + no.token.value + "', ",
-		separador: ",",
+		codigo: "programa.executar('" + no.token.value + "'",
+		prefixoItem: ",",
 		sufixo: ")"
 	};
 

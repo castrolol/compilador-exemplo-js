@@ -7,6 +7,8 @@ var agentes = [
 	"programa",
 	"variaveis",
 	"funcao",
+	"atribuicao",
+	"indicador",
 	"matematica"
 ].map(function(path) {
 	return new(require("./agentes/agente-" + path))();
@@ -27,7 +29,7 @@ function analisar() {
 function executarInterno(no) {
 
 	var codigo = "\n ";
-	var agente = obterAgente(no);
+	var agente = obterAgente(no); 
 	var processChildren = true;
 	var precodigo = {};
 
@@ -42,7 +44,9 @@ function executarInterno(no) {
 
 	if ("ignorarFilhos" in precodigo == false || !precodigo.ignorarFilhos) {
 		var filhos = no.children.map(function(child) {
-			var codigoInterno = executarInterno(child);
+			var codigoInterno = "";
+			if(precodigo.prefixoItem) codigoInterno += precodigo.prefixoItem;
+			codigoInterno += executarInterno(child);
 			if (precodigo.sufixoItem) codigoInterno += precodigo.sufixoItem;
 			return codigoInterno;
 		});
