@@ -8,12 +8,8 @@ variaveis
 
 inicio
 
-	
-	nome = ler()
-	
-	idade = 30
-	
-	escrever( 2015 - idade )
-	
 
+	escrever( !((3 + 3) != (2 * 3)) )
+ 	escrever( (3 + 3) == (2 * 3) )
 fim
+

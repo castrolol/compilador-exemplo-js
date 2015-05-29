@@ -10,10 +10,17 @@ function Programa(nome){
 	this.vars = new Variaveis();
 
 	this.matematica = require("./matematica");
+	this.logica = require("./logica");
 	
 }
 
 Programa.prototype.escrever = function(texto){
+	
+	if(typeof texto == "boolean"){
+		console.log(texto ? "verdadeiro" : "falso");
+		return;
+	}
+	
 	console.log(texto);
 };
 

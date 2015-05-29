@@ -40,7 +40,7 @@
 	{
 		"id": "OP_COMP_MENOR", 
 		"char": "<",
-		"quantidade": 2 
+		"quantidade": 1 
 	},
 	{
 		"id": "OP_COMP_IGUAL", 

@@ -9,7 +9,8 @@ var agentes = [
 	"funcao",
 	"atribuicao",
 	"indicador",
-	"matematica"
+	"matematica",
+	"logico"
 ].map(function(path) {
 	return new(require("./agentes/agente-" + path))();
 });
@@ -30,7 +31,6 @@ function executarInterno(no) {
 
 	var codigo = "\n ";
 	var agente = obterAgente(no); 
-	var processChildren = true;
 	var precodigo = {};
 
 

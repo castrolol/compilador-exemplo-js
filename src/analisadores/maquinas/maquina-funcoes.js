@@ -25,6 +25,7 @@ MaquinaFuncoes.prototype.consumir = function(token){
 		case estados.iniciadaInvocacao:
 			break;
 		case estados.finalizadaInvocacao:
+			this.escopo.limpar();
 			break;
 		default:
 			if(token.type == tiposToken.palavraChave ){

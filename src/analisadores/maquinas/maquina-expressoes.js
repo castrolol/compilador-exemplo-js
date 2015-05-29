@@ -134,12 +134,12 @@ MaquinaExpressoes.prototype.consumir = function(token) {
 		if ("arvore" in this.context) {
 			this.escopo.raiz.addChild(this.context.arvore);
 			this.escopo.limpar();
-			this.escopo.submaquina.consumir(token);
+			//this.escopo.submaquina.consumir(token);
 			return;
 		}
 		else {
 			this.escopo.limpar();
-			this.escopo.submaquina.consumir(token);
+			//this.escopo.submaquina.consumir(token);
 		}
 
 

@@ -10,13 +10,14 @@ AgentePrograma.prototype.processar = function(no){
 		nome = nomeNo.token.value
 	}
 
-	var codigo = "var programa = new Programa(" + nome + "); ";
-	
- 
+	var codigo = "(function(vars, logica, matematica, executar){";
+
+	var fimCodigo = "}(programa.vars, programa.logica, programa.matematica, programa.logica));";
+
 	return {
 		
-		codigo: codigo, 
-		ignorarFilhos: true
+		codigo: codigo,
+		sufixo: fimCodigo
 	};
 
 }
@@ -24,7 +25,7 @@ AgentePrograma.prototype.processar = function(no){
 AgentePrograma.prototype.podeProcessar = function(no){
 	if(no.token == null) return false;
 	if(no.token.type != tiposToken.palavraChave) return false;
-	return no.token.value == "programa";
+	return no.token.value == "inicio";
 }
 
 module.exports = AgentePrograma;

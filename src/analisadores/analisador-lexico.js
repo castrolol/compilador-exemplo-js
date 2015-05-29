@@ -107,6 +107,7 @@ AnalisadorLexico.prototype.extrairTokens = function(codigo) {
 			token.save();
 			token.addChar(especial.char);
 			token.save(especial.id);
+			if(especial.quantidade == 2) i++;
 			continue;
 		}
 
